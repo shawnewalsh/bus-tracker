@@ -1,0 +1,13 @@
+1. Refactor The Real Time Bus Tracker
+It’s time to experiment with the project and make it your own by refactoring the code. You might consider:
+
+Using data from another public API
+Adapting the styling
+2. Share Your Real Time Bus Tracker Repository
+After you’ve made these improvements, share the link to your GitHub repository in the discussion board below. To align with your GitHub Portfolio Project, it should include at least three files: index.html, mapanimation.js, and styles.css. It should also include a README file with:
+
+Title of the project: Real Time Bus Tracker
+Description of the project: What does the current project do?  Include improvements you made in the description. 
+How to Run: This is information someone would use to run your project on their machine.
+Roadmap of future improvements: What additional features or functionality would be helpful to a user? 
+License information: This should include information about the MIT license. 
