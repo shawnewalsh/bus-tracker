@@ -13,9 +13,10 @@ var map = new mapboxgl.Map({
 	});
  
 const stops = data.data.references.stops;
+console.log("Stops array is " + stops.length);
 
-var c = 0;
 
+/** 
 for (c = 0; c < stops.length; c ++){
 	var lat = stops[c].lat;
 	var lon = stops[c].lon;
@@ -23,7 +24,7 @@ for (c = 0; c < stops.length; c ++){
 	.setLngLat([lon, lat])
 	.addTo(map);
 
-}
+}  */
 const routes = data.data.references.routes;
 console.log(routes[0].longName);
 
@@ -32,14 +33,13 @@ window.onload = function() {
 const routeselect = document.getElementById("route-dropdown");
 console.log("routeselect = " + routeselect);
 		
-	console.log("hello1");	
+	
 for (let r = 0; r < routes.length; r++){
 		var opt =routes[r].longName;
 		var el = document.createElement("option");
 		el.textContent = opt;
 		el.value = opt;
 		routeselect.appendChild(el);	
-		console.log("hello2");	
 
 	}
 
@@ -47,19 +47,26 @@ for (let r = 0; r < routes.length; r++){
 
 function loadBusRoute(routelongname) {
 	let routename = routelongname;
-
-
-
 }
 
 
 var counter = 0;
 function move() {
-	setTimeout(() => {
-		if (counter >= busStops.length) return;
-		marker.setLngLat(busStops[counter]);
-		counter++;
-		move();
-		}, 1000);
+	var c = 0;
+		 for (c=0; c < stops.length; c++) {
+			if(stops[c].routeIds[1] === "MTA NYCT_M2")
+			{
+				console.log("found a m2 stop..."
+
+				);
+			}
+		var lat = stops[c].lat;
+		var lon = stops[c].lon;
+		var marker = new mapboxgl.Marker()
+		.setLngLat([lon, lat])
+		.addTo(map);
+		 }
 		
 	}
+
+console.log(data.data.references.stops[0].routeIds[1]);
