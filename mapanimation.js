@@ -16,6 +16,8 @@ const stops = data.data.references.stops;
 console.log("Stops array is " + stops.length);
 
 
+
+
 /** 
 for (c = 0; c < stops.length; c ++){
 	var lat = stops[c].lat;
@@ -49,24 +51,43 @@ function loadBusRoute(routelongname) {
 	let routename = routelongname;
 }
 
+function getRouteFromDrpDown() {
+
+};
+
+console.log("type of " + routes[0].id);
+
+function searchStringInRoutesArray (str, strArray) {
+    for (var j=0; j<strArray.length; j++) {
+        if (strArray[j].longName.toString().match(str)) return strArray[j].id;
+    }
+    return -1;
+}
+console.log("I found it " + searchStringInRoutesArray("East Harlem - West Side", routes));
 
 var counter = 0;
 function move() {
 	var c = 0;
-		 for (c=0; c < stops.length; c++) {
-			if(stops[c].routeIds[1] === "MTA NYCT_M2")
-			{
-				console.log("found a m2 stop..."
+	var n = 0;
+	var sel = document.getElementById("route-dropdown");
+	var text= sel.options[sel.selectedIndex].text;
+	console.log("dropdown text is " + text);
 
-				);
+		 for (c=0; c < stops.length; c++) {
+			for (n=0; n < stops[c].routeIds.length; n++){
+			if(stops[c].routeIds[n] === "MTA NYCT_M72")
+			{
+				console.log("found a MTA NYCT_M72 stop...");
+				var lat = stops[c].lat;
+				var lon = stops[c].lon;
+				var marker = new mapboxgl.Marker()
+				.setLngLat([lon, lat])
+				.addTo(map);
 			}
-		var lat = stops[c].lat;
-		var lon = stops[c].lon;
-		var marker = new mapboxgl.Marker()
-		.setLngLat([lon, lat])
-		.addTo(map);
+
 		 }
+		}
 		
 	}
 
-console.log(data.data.references.stops[0].routeIds[1]);
+//console.log(data.data.references.stops[0].routeIds[1]);
